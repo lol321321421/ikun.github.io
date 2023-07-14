@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+<html>
+  <head>
+    <title>点击进来有惊喜</title>
+    <style>
+      body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-size: 16px;
+}
+
+button {
+  padding: 2% 5%;
+  font-size: 2rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#gif-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+}
+
+#gif-container img {
+  max-width: 90%;
+  max-height: 90%;
+}
+
+#gif-container h1 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 4rem;
+  color: white;
+  text-shadow: 0 0 10px black;
+  z-index: 99999;
+}
+
+/* Media queries for screens with a maximum width of 768px */
+@media only screen and (max-width: 768px) {
+  body {
+    font-size: 14px;
+  }
+
+  button {
+    padding: 3% 6%;
+    font-size: 2.5rem;
+  }
+
+  #gif-container h1 {
+    font-size: 3rem;
+  }
+}
+
+/* Media queries for screens with a maximum width of 480px */
+@media only screen and (max-width: 480px) {
+  body {
+    font-size: 12px;
+  }
+
+  button {
+    padding: 5% 10%;
+    font-size: 3rem;
+  }
+
+  #gif-container h1 {
+    font-size: 2.5rem;
+  }
+}
+    </style>
+  </head>
+  <body>
+    <button onclick="showGif()">小黑子点击这里</button>
+
+    <div id="gif-container">
+      <img src="https://imgs.aixifan.com/o_1dahbrlgn9h788rt32172h18286b.gif" alt="GIF">
+      <h1>你干嘛哈哈哟</h1>
+    </div>
+
+    <script>
+      function showGif() {
+  // Get the button element
+  var buttonElement = document.querySelector('button');
+
+  // Create an audio element with the source set to http://jilehe.cn/res/%E5%95%8A%EF%BD%9E.mp3
+  var audio1 = new Audio('assets/啊～.mp3');
+
+  // Play the first audio file
+  audio1.play();
+
+  // Slowly write the text "啊~" for the button
+  var originalText = buttonElement.textContent;
+  buttonElement.textContent = '啊~';
+  var newText = buttonElement.textContent;
+  buttonElement.textContent = '';
+
+  for (var i = 0; i < newText.length; i++) {
+    (function(i) {
+      setTimeout(function() {
+        buttonElement.textContent += newText.charAt(i);
+      }, i * 200); // Delay in milliseconds (200ms = 0.2 seconds)
+    })(i);
+  }
+
+  // Wait for one second before playing the second audio file
+  setTimeout(function() {
+    // Create an audio element with the source set to http://jilehe.cn/res/ngmhhy.mp3
+    var audio2 = new Audio('assets/ngmhhy.mp3');
+
+    // Play the second audio file
+    audio2.play();
+
+    // Show the GIF container
+    var gifContainer = document.querySelector('#gif-container');
+    gifContainer.style.display = 'flex';
+
+    // Slowly write the text "你干嘛哈哈哟" for the second audio file
+    var textElement = document.querySelector('#gif-container h1');
+    var originalText = textElement.textContent;
+    textElement.textContent = '你干嘛哈哈哟';
+    var newText = textElement.textContent;
+    textElement.textContent = '';
+
+    for (var i = 0; i < newText.length; i++) {
+      (function(i) {
+        setTimeout(function() {
+          textElement.textContent += newText.charAt(i);
+        }, i * 200); // Delay in milliseconds (200ms = 0.2 seconds)
+      })(i);
+    }
+
+    // Wait for three seconds before playing the third audio file
+    setTimeout(function() {
+      // Create an audio element with the source set to http://jilehe.cn/res/yhhmgn.mp3
+      var audio3 = new Audio('assets/yhhmgn.mp3');
+
+      // Play the third audio file
+      audio3.play();
+
+      // Slowly write the text "哦呀啊哈，妈" for the third audio file
+      var textElement = document.querySelector('#gif-container h1');
+      var originalText = textElement.textContent;
+      textElement.textContent = '哦呀啊哈，妈';
+      var newText = textElement.textContent;
+      textElement.textContent = '';
+
+      for (var i = 0; i < newText.length; i++) {
+        (function(i) {
+          setTimeout(function() {
+            textElement.textContent += newText.charAt(i);
+          }, i * 200); // Delay in milliseconds (200ms = 0.2 seconds)
+        })(i);
+      }
+
+      // Redirect the current window to the specified URL after a delay
+      setTimeout(function() {
+        window.location.href = 'https://www.facebook.com/groups/813528147054212';
+      }, 3300); // Delay in milliseconds (3000ms = 3 seconds)
+    }, 3000); // Delay in milliseconds (3000ms = 3 seconds)
+  }, 1000); // Delay in milliseconds (1000ms = 1 second)
+}
+    </script>
+  </body>
+</html>
